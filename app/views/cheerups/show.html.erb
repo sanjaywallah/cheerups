@@ -1,0 +1,8 @@
+<%= link_to "&larr; Back".html_safe, cheerups_path %>
+<article>
+  <h2><%= @cheerup.title %></h2>
+  <time>Updated <%= @cheerup.updated_at %></time>
+  <p><%= @cheerup.body %></p>
+  <%= link_to "Edit Cheerup", edit_cheerup_path(@cheerup) %>
+  <%= link_to "Delete Cheerup", cheerup_path(@cheerup), method: :delete %>
+</article>

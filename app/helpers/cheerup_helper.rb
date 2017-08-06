@@ -1,0 +1,2 @@
+module CheerupHelper
+end

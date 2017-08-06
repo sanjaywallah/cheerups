@@ -1,0 +1,10 @@
+<%= link_to "Create New Cheerup", new_cheerup_path %>
+
+<section>
+  <% @cheerups.each do |cheerup| %>
+    <article>
+      <h2><%= link_to cheerup.title, cheerup_path(cheerup) %></h2>
+      <!-- <p><%= cheerup.body %></p> -->
+    </article>
+  <% end %>
+</section>
