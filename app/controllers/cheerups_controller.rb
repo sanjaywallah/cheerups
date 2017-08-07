@@ -25,10 +25,11 @@ class CheerupsController < ApplicationController
     @cheerup.update(cheerup_params)
     redirect_to cheerup_path(@cheerup)
   end
-  
+
   def destroy
     @cheerup = Cheerup.find(params[:id])
     @cheerup.destroy
+    flash[:alert] = 'Cheerup Deleted!'
     redirect_to cheerups_path
   end
 

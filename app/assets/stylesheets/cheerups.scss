@@ -26,6 +26,22 @@ body {
   line-height: 12px;
 }
 
+h1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap-reverse;
+  color: #990099;
+  font-family: 'Kalam', cursive;
+  font-weight: 800;
+  font-size: 60px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.home button {
+
+}
+
 a {
   text-decoration:none;
   color: #990099;
