@@ -3,5 +3,34 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-  background-color: #66ffcc;
+  background-color: #ffcce6;
+}
+
+.home{
+  width: 620px;
+  height: 320px;
+  background-color: #fff2e6;
+  padding: 60px;
+  margin: 0 auto;
+  border: 10px solid #990099;
+  border-radius: 10px;
+}
+
+.home h2 {
+  display: inline-block;
+  color: #990099;
+  font-family: 'Kalam', cursive;
+  font-weight: bold;
+  font-size: 22px;
+  padding: 5px;
+  line-height: 12px;
+}
+
+a {
+  text-decoration:none;
+  color: #990099;
+}
+
+a:hover{
+  background-color: #ffcc99;
 }
