@@ -20,3 +20,9 @@ cheerups = Cheerup.create([
     {title: "Tomorrow's a new day", body:"Tomorrow’s a brand new unit of the universe stretching forth to its ultimate demise!  So don’t you worry ‘bout a thing!  But seriously, my ugly ass is here for you kid!"},
     {title: "I'll handle it!", body:"So who do I need to nut-punch?!  Just point me in the right direction"}
   ])
+
+comments = Comment.create([
+  {body:"comment on first cheerup", cheerup: cheerups[0]},
+  {body:"comment on second cheerup", cheerup: cheerups[1]},
+  {body:"comment on third cheerup", cheerup: cheerups[2]}
+])

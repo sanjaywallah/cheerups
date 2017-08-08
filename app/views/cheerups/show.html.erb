@@ -1,8 +1,17 @@
 <%= link_to "&larr; Back".html_safe, cheerups_path %>
-<article>
+<section>
   <h2><%= @cheerup.title %></h2>
-  <time>Updated <%= @cheerup.updated_at %></time>
   <p><%= @cheerup.body %></p>
   <%= link_to "Edit Cheerup", edit_cheerup_path(@cheerup) %>
   <%= link_to "Delete Cheerup", cheerup_path(@cheerup), method: :delete %>
-</article>
+  <div class='comments'>
+  <h3>Comments</h3>
+  <%= link_to "Add new comment", new_cheerup_comment_path(@cheerup) %>
+  <% @cheerup.comments.each do |comment| %>
+	  <p><%= comment.body %></p>
+      <%= link_to "Edit Comment", edit_cheerup_comment_path(@cheerup, comment) %>
+      <%= link_to "Delete Comment", cheerup_comment_path(@cheerup, comment), method: :delete %>
+    </div>
+  <% end %>
+  </div>
+</section>
