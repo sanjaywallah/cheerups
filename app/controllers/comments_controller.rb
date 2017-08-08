@@ -8,6 +8,22 @@ class CommentsController < ApplicationController
     @comment = @cheerup.comments.create(comment_params)
     redirect_to cheerup_path(@cheerup)
   end
+  def edit
+    @cheerup = Cheerup.find(params[:cheerup_id])
+    @comment = Comment.find(params[:id])
+  end
+  def update
+    @cheerup = Cheerup.find(params[:cheerup_id])
+    @comment = Comment.find(params[:id])
+    @comment.update(cheerup_params)
+    redirect_to cheerup_path(@cheerup)
+  end
+  def destroy
+    @cheerup = Cheerup.find(params[:cheerup_id])
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to cheerup_path(@cheerup)
+  end
   private
   def comment_params
     params.require(:comment).permit(:body)
