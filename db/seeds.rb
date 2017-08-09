@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Cheerup.destroy_all
-Vote.destroy_all
+Comment.destroy_all
 
 cheerups = Cheerup.create([
     {title: "I believe in you", body: "I believe in you!  I also believe in ET, but this is quite beside the point…  Hang in there Kid!"},

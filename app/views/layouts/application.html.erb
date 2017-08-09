@@ -3,14 +3,16 @@
   <head>
     <title>Cheerups</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <!-- <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p> -->
+      <% flash.each do |type, message| %>
+        <p class="flash <%= type %>"><%= message %></p>
+      <% end %>
     <%= yield %>
   </body>
 </html>

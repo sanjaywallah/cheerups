@@ -17,6 +17,7 @@ class CheerupsController < ApplicationController
 
   def create
     @cheerup = Cheerup.create!(cheerup_params)
+    flash[:alert] = 'Cheerup Created!'
     redirect_to cheerup_path(@cheerup)
   end
 
@@ -32,7 +33,12 @@ class CheerupsController < ApplicationController
     flash[:alert] = 'Cheerup Deleted!'
     redirect_to cheerups_path
   end
-
+  def score_up
+    @cheerup = Cheerup.find(params[:id])
+    @cheerup.upvotes
+    @cheerup.save
+    redirect_to cheerup_path(@cheerup)
+  end
   private
   def cheerup_params
     params.require(:cheerup).permit(:title, :body)
