@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
   def update
     @cheerup = Cheerup.find(params[:cheerup_id])
     @comment = Comment.find(params[:id])
-    @comment.update(cheerup_params)
+    @comment.update(comment_params)
     redirect_to cheerup_path(@cheerup)
   end
   def destroy
