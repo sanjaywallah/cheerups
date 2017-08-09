@@ -6,6 +6,7 @@ class Cheerup < ApplicationRecord
   validates :body, :title, presence: true
 
   has_many :comments
+  belongs_to :user
   def upvotes
     self.upvote += 1
   end

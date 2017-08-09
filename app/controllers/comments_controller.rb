@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
   end
   def create
     @cheerup = Cheerup.find(params[:cheerup_id])
-    @comment = @cheerup.comments.create(comment_params)
+    @comment = @cheerup.comments.create(comment_params.merge(user: current_user))
     redirect_to cheerup_path(@cheerup)
   end
   def edit
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
   def update
     @cheerup = Cheerup.find(params[:cheerup_id])
     @comment = Comment.find(params[:id])
-    @comment.update(comment_params)
+    @comment.update(comment_params.merge(user: current_user))
     redirect_to cheerup_path(@cheerup)
   end
   def destroy

@@ -4,15 +4,19 @@
   <p><%= @cheerup.body %></p>
   <%= link_to "Upvote", score_up_cheerup_path(@cheerup), method: :post%>
   <%= @cheerup.upvote %><br>
-  <%= link_to "Edit Cheerup", edit_cheerup_path(@cheerup) %><br>
-  <%= link_to "Delete Cheerup", cheerup_path(@cheerup), method: :delete %>
-  <div>
+  <% if current_user && current_user == @cheerup.user %>
+    <%= link_to "Edit Cheerup", edit_cheerup_path(@cheerup) %><br>
+    <%= link_to "Delete Cheerup", cheerup_path(@cheerup), method: :delete %>
+  <% end %>
     <h3>Comments</h3>
+    <div>
     <% @cheerup.comments.each do |comment| %>
         <p><%= comment.body %></p>
-        <%= link_to "Edit Comment", edit_cheerup_comment_path(@cheerup, comment) %><br>
-        <%= link_to "Delete Comment", cheerup_comment_path(@cheerup, comment), method: :delete %><br>
-    <% end %>
-  </div>
-  <%= link_to "Add new comment", new_cheerup_comment_path(@cheerup) %>
+      <% if current_user && current_user == comment.user %>
+          <%= link_to "Edit Comment", edit_cheerup_comment_path(@cheerup, comment) %><br>
+          <%= link_to "Delete Comment", cheerup_comment_path(@cheerup, comment), method: :delete %><br>
+      <% end %>
+  <% end %>
+</div>
+<%= link_to "Add new comment", new_cheerup_comment_path(@cheerup) %>
 </section>

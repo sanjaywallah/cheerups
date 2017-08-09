@@ -82,6 +82,7 @@ a:hover{
 }
 
 input[type=text]{
+    display: block;
     width: 20%;
     padding: 12px 20px;
     box-sizing: border-box;
@@ -90,6 +91,7 @@ input[type=text]{
 }
 
 textarea {
+    display: block;
     width: 20%;
     padding: 12px 20px;
     box-sizing: border-box;
@@ -97,3 +99,12 @@ textarea {
     border-radius: 4px;
     resize: none;
 }
+
+.flash {
+  border: 2px solid #990099;
+  padding: 1em;
+  background-color: #fff2e6;
+}
+
+.alert {color: #CC0000 }
+.notice {color: #cc0099 }
