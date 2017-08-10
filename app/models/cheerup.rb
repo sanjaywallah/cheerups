@@ -4,6 +4,7 @@ class Cheerup < ApplicationRecord
   validates :title, length: {minimum: 5,
   too_short: "%{count} is below the minimum 5 characters"}
   validates :body, :title, presence: true
+  validates :title, uniqueness: true
 
   has_many :comments
   belongs_to :user

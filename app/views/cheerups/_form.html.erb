@@ -1,14 +1,12 @@
 <%= form_for @cheerup do |f| %>
-  <% if @cheerup.errors.any? %>
-      <div id="errors">
-        <ul>
-          <h2>errors:</h2>
-          <% @cheerup.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-  <% end  %>
+    <% if @cheerup.errors.any? %>
+      <h2>Errors</h2>
+      <ul>
+        <% @cheerup.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+      </ul>
+    <% end %>
+<% end  %>
     <%= f.label :title %>
     <%= f.text_field :title %>
     <%= f.label :body %>

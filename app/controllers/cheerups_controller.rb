@@ -18,18 +18,20 @@ class CheerupsController < ApplicationController
   def create
     @cheerup = Cheerup.new(cheerup_params.merge(user: current_user))
     if @cheerup.save
-      flash[:notice] = "Cheerup was created."
       redirect_to @cheerup
     else
-      redirect_to new_cheerup_path
+      render 'new'
     end
   end
 
   def update
     @cheerup = Cheerup.find(params[:id])
-    @cheerup.update(cheerup_params.merge(user: current_user))
-    redirect_to cheerup_path(@cheerup)
+    if @cheerup.update(cheerup_params.merge(user: current_user))
+      redirect_to cheerup_path(@cheerup)
+    else
+      render 'new'
   end
+end
 
   def destroy
     @cheerup = Cheerup.find(params[:id])
@@ -37,12 +39,14 @@ class CheerupsController < ApplicationController
     flash[:alert] = 'Cheerup Deleted!'
     redirect_to cheerups_path
   end
+
   def score_up
     @cheerup = Cheerup.find(params[:id])
     @cheerup.upvotes
     @cheerup.save
     redirect_to cheerup_path(@cheerup)
   end
+
   private
   def cheerup_params
     params.require(:cheerup).permit(:title, :body)
