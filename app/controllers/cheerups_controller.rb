@@ -16,9 +16,13 @@ class CheerupsController < ApplicationController
   end
 
   def create
-    @cheerup = Cheerup.create!(cheerup_params.merge(user: current_user))
-    flash[:alert] = 'Cheerup Created!'
-    redirect_to cheerup_path(@cheerup)
+    @cheerup = Cheerup.new(cheerup_params.merge(user: current_user))
+    if @cheerup.save
+      flash[:notice] = "Cheerup was created."
+      redirect_to @cheerup
+    else
+      redirect_to new_cheerup_path
+    end
   end
 
   def update

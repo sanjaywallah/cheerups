@@ -1,7 +1,17 @@
 <%= form_for @cheerup do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :body %>
-  <%= f.text_area :body %>
-  <%= f.submit %>
+  <% if @cheerup.errors.any? %>
+      <div id="errors">
+        <ul>
+          <h2>errors:</h2>
+          <% @cheerup.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+  <% end  %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+    <%= f.submit %>
 <% end %>
